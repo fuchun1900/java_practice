@@ -1,0 +1,32 @@
+package Demo;
+
+import java.util.InputMismatchException;
+
+public class Exercise11MyTime {
+	private int save;
+	private int hour;
+	private int minute;
+	private int second;
+	final static private int day_sec = 24*60*60;
+	final static private int day_hour = 60*60;
+	
+	public Exercise11MyTime(int n) throws InputMismatchException{
+		this.save = n;
+		this.hour = save / day_hour;  //求小时数
+		this.second = (save - this.hour * day_hour) % 60 ;  //求秒数
+		this.minute = (save - this.hour * day_hour) /60;
+	}
+	public Exercise11MyTime(int a,int b,int c) throws InputMismatchException{
+		this.hour = a;
+		this.minute = b;
+		this.second = c;
+	}
+	void showTime() {
+		System.out.println("the time is "+this.hour+":"+this.minute+":"+this.second);
+	}
+	public static void main(String args[]) {
+		Exercise11MyTime MyTime = new Exercise11MyTime(11,22,56);
+		MyTime.showTime();
+	}
+
+}
